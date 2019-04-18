@@ -1,0 +1,352 @@
+Apr 17 17:21:53 localhost kernel: kernel tried to execute NX-protected page - exploit attempt? (uid: 0)
+Apr 17 17:21:53 localhost kernel: BUG: unable to handle kernel paging request at ffff989e36226ac8
+Apr 17 17:21:53 localhost kernel: #PF error: [PROT] [INSTR]
+Apr 17 17:21:53 localhost kernel: PGD 4c002067 P4D 4c002067 PUD 13ffff067 PMD 80000000b62000e3 
+Apr 17 17:21:53 localhost kernel: Oops: 0011 [#1] SMP PTI
+Apr 17 17:21:53 localhost kernel: CPU: 1 PID: 1510 Comm: nfsd Not tainted 5.0.6-200.fc29.x86_64 #1
+Apr 17 17:21:53 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:21:53 localhost kernel: RIP: 0010:0xffff989e36226ac8
+Apr 17 17:21:53 localhost kernel: Code: ff ff 20 51 e4 b1 9e 98 ff ff ab 6a 3c da 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 <c8> 72 22 36 9e 98 ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Apr 17 17:21:53 localhost kernel: RSP: 0018:ffffa5a1c1c7bcb8 EFLAGS: 00010282
+Apr 17 17:21:53 localhost kernel: RAX: ffff989e36226ac8 RBX: ffff989e361dd028 RCX: ffffffff9dc8b520
+Apr 17 17:21:53 localhost kernel: RDX: ffffffffc076e580 RSI: ffff989eaec2eaf8 RDI: ffff989e361dd028
+Apr 17 17:21:53 localhost kernel: RBP: ffff989e36226028 R08: 0000000000000000 R09: 0000000000000000
+Apr 17 17:21:53 localhost kernel: R10: ffff989eb1ee2360 R11: 0000000000000080 R12: ffff989eb342b3b8
+Apr 17 17:21:53 localhost kernel: R13: ffff989e8dd3aa28 R14: 000000000000000b R15: ffff989eaa57a6b8
+Apr 17 17:21:53 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9c40000(0000) knlGS:0000000000000000
+Apr 17 17:21:53 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:21:53 localhost kernel: CR2: ffff989e36226ac8 CR3: 0000000121616005 CR4: 00000000001606e0
+Apr 17 17:21:53 localhost kernel: Call Trace:
+Apr 17 17:21:53 localhost kernel: ? posix_lock_inode+0x4cf/0x8c0
+Apr 17 17:21:53 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:21:53 localhost kernel: ? nfsd4_lock+0x9cb/0x10b0 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? nfsd4_link_rsize+0x10/0x10 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:21:53 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:21:53 localhost kernel: ? nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:21:53 localhost kernel: ? kthread+0x112/0x130
+Apr 17 17:21:53 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:21:53 localhost kernel: ? ret_from_fork+0x35/0x40
+Apr 17 17:21:53 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:21:53 localhost kernel: CR2: ffff989e36226ac8
+Apr 17 17:21:53 localhost kernel: ---[ end trace 92b04cebe62e74cf ]---
+Apr 17 17:21:53 localhost kernel: RIP: 0010:0xffff989e36226ac8
+Apr 17 17:21:53 localhost kernel: Code: ff ff 20 51 e4 b1 9e 98 ff ff ab 6a 3c da 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 <c8> 72 22 36 9e 98 ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Apr 17 17:21:53 localhost kernel: RSP: 0018:ffffa5a1c1c7bcb8 EFLAGS: 00010282
+Apr 17 17:21:53 localhost kernel: RAX: ffff989e36226ac8 RBX: ffff989e361dd028 RCX: ffffffff9dc8b520
+Apr 17 17:21:53 localhost kernel: RDX: ffffffffc076e580 RSI: ffff989eaec2eaf8 RDI: ffff989e361dd028
+Apr 17 17:21:53 localhost kernel: RBP: ffff989e36226028 R08: 0000000000000000 R09: 0000000000000000
+Apr 17 17:21:53 localhost kernel: R10: ffff989eb1ee2360 R11: 0000000000000080 R12: ffff989eb342b3b8
+Apr 17 17:21:53 localhost kernel: R13: ffff989e8dd3aa28 R14: 000000000000000b R15: ffff989eaa57a6b8
+Apr 17 17:21:53 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9c40000(0000) knlGS:0000000000000000
+Apr 17 17:21:53 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:21:53 localhost kernel: CR2: ffff989e36226ac8 CR3: 0000000121616005 CR4: 00000000001606e0
+Apr 17 17:21:54 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:21:54 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:21:54 localhost abrt-server[3894]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:21:54 localhost abrt-server[3894]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:21:54 localhost abrt-server[3894]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:21:55 localhost dbus-daemon[750]: [system] Activating service name='org.freedesktop.problems' requested by ':1.45' (uid=0 pid=3911 comm="/usr/bin/python3 /usr/bin/abrt-action-notify -d /v" label="system_u:system_r:abrt_t:s0-s0:c0.c1023") (using servicehelper)
+Apr 17 17:21:55 localhost dbus-daemon[750]: [system] Successfully activated service 'org.freedesktop.problems'
+Apr 17 17:21:55 localhost abrt-notification[3917]: System encountered a non-fatal error in posix_lock_inode()
+Apr 17 17:21:55 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:22:19 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [nfsd:1507]
+Apr 17 17:22:19 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:22:19 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D           5.0.6-200.fc29.x86_64 #1
+Apr 17 17:22:19 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:22:19 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:22:19 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:22:19 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:22:19 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:22:19 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:22:19 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:22:19 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:22:19 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:22:19 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:22:19 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:22:19 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:22:19 localhost kernel: Call Trace:
+Apr 17 17:22:19 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:22:19 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:22:19 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:22:19 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:22:19 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:22:19 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:22:19 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:22:19 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:22:19 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:22:19 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:22:19 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:22:19 localhost kernel: kthread+0x112/0x130
+Apr 17 17:22:19 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:22:19 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:22:20 localhost dhclient[1025]: DHCPREQUEST on ens33 to 192.168.10.254 port 67 (xid=0x41e90474)
+Apr 17 17:22:20 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:22:20 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:22:21 localhost abrt-server[3921]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:22:21 localhost abrt-server[3921]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:22:21 localhost abrt-server[3921]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:22:21 localhost abrt-notification[3939]: System encountered a non-fatal error in ??()
+Apr 17 17:22:21 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:22:27 localhost dhclient[1025]: DHCPREQUEST on ens33 to 192.168.10.254 port 67 (xid=0x41e90474)
+Apr 17 17:22:39 localhost dhclient[1025]: DHCPREQUEST on ens33 to 192.168.10.254 port 67 (xid=0x41e90474)
+Apr 17 17:22:47 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [nfsd:1507]
+Apr 17 17:22:47 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:22:47 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:22:47 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:22:47 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:22:47 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:22:47 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:22:47 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:22:47 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:22:47 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:22:47 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:22:47 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:22:47 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:22:47 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:22:47 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:22:47 localhost kernel: Call Trace:
+Apr 17 17:22:47 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:22:47 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:22:47 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:22:47 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:22:47 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:22:47 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:22:47 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:22:47 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:22:47 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:22:47 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:22:47 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:22:47 localhost kernel: kthread+0x112/0x130
+Apr 17 17:22:47 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:22:47 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:22:48 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:22:48 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:22:49 localhost abrt-server[3942]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:22:49 localhost abrt-server[3942]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:22:49 localhost abrt-server[3942]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:22:49 localhost abrt-notification[3960]: System encountered a non-fatal error in ??()
+Apr 17 17:22:49 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:22:50 localhost dhclient[1025]: DHCPREQUEST on ens33 to 192.168.10.254 port 67 (xid=0x41e90474)
+Apr 17 17:22:53 localhost kernel: rcu: INFO: rcu_sched self-detected stall on CPU
+Apr 17 17:22:53 localhost kernel: rcu: #0113-....: (59840 ticks this GP) idle=a9a/1/0x4000000000000002 softirq=57119/57119 fqs=13730 
+Apr 17 17:22:53 localhost kernel: rcu: #011 (t=60001 jiffies g=83705 q=11712)
+Apr 17 17:22:53 localhost kernel: NMI backtrace for cpu 3
+Apr 17 17:22:53 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:22:53 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:22:53 localhost kernel: Call Trace:
+Apr 17 17:22:53 localhost kernel: <IRQ>
+Apr 17 17:22:53 localhost kernel: dump_stack+0x5c/0x80
+Apr 17 17:22:53 localhost kernel: nmi_cpu_backtrace.cold.5+0x13/0x50
+Apr 17 17:22:53 localhost kernel: ? lapic_can_unplug_cpu.cold.24+0x34/0x34
+Apr 17 17:22:53 localhost kernel: nmi_trigger_cpumask_backtrace+0xde/0xe0
+Apr 17 17:22:53 localhost kernel: rcu_dump_cpu_stacks+0x9c/0xca
+Apr 17 17:22:53 localhost kernel: rcu_check_callbacks.cold.70+0x179/0x364
+Apr 17 17:22:53 localhost kernel: ? tick_sched_do_timer+0x80/0x80
+Apr 17 17:22:53 localhost kernel: update_process_times+0x28/0x60
+Apr 17 17:22:53 localhost kernel: tick_sched_handle+0x22/0x60
+Apr 17 17:22:53 localhost kernel: tick_sched_timer+0x37/0x70
+Apr 17 17:22:53 localhost kernel: __hrtimer_run_queues+0x100/0x280
+Apr 17 17:22:53 localhost kernel: hrtimer_interrupt+0x100/0x220
+Apr 17 17:22:53 localhost kernel: smp_apic_timer_interrupt+0x6a/0x140
+Apr 17 17:22:53 localhost kernel: apic_timer_interrupt+0xf/0x20
+Apr 17 17:22:53 localhost kernel: </IRQ>
+Apr 17 17:22:53 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:22:53 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:22:53 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:22:53 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:22:53 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:22:53 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:22:53 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:22:53 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:22:53 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:22:53 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:22:53 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:22:53 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:22:53 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:22:53 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:22:53 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:22:53 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:22:53 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:22:53 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:22:53 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:22:53 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:22:53 localhost kernel: kthread+0x112/0x130
+Apr 17 17:22:53 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:22:53 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:23:11 localhost dhclient[1025]: DHCPREQUEST on ens33 to 192.168.10.254 port 67 (xid=0x41e90474)
+Apr 17 17:23:19 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [nfsd:1507]
+Apr 17 17:23:19 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:23:19 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:23:19 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:23:19 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:23:19 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:23:19 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:23:19 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:23:19 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:23:19 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:23:19 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:23:19 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:23:19 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:23:19 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:23:19 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:23:19 localhost kernel: Call Trace:
+Apr 17 17:23:19 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:23:19 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:23:19 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:23:19 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:23:19 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:23:19 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:23:19 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:23:19 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:23:19 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:23:19 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:23:19 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:23:19 localhost kernel: kthread+0x112/0x130
+Apr 17 17:23:19 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:23:19 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:23:20 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:23:20 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:23:21 localhost abrt-server[3964]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:23:21 localhost abrt-server[3964]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:23:21 localhost abrt-server[3964]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:23:21 localhost abrt-notification[3982]: System encountered a non-fatal error in ??()
+Apr 17 17:23:21 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:23:24 localhost dhclient[1025]: DHCPREQUEST on ens33 to 255.255.255.255 port 67 (xid=0x41e90474)
+Apr 17 17:23:33 localhost NetworkManager[882]: <info>  [1555547013.7371] dhcp4 (ens33): state changed bound -> expire
+Apr 17 17:23:33 localhost NetworkManager[882]: <info>  [1555547013.7373] device (ens33): DHCPv4: 480 seconds grace period started
+Apr 17 17:23:33 localhost NetworkManager[882]: <info>  [1555547013.7430] dhcp4 (ens33): state changed expire -> unknown
+Apr 17 17:23:33 localhost dhclient[1025]: DHCPDISCOVER on ens33 to 255.255.255.255 port 67 interval 8 (xid=0x815c665e)
+Apr 17 17:23:41 localhost dhclient[1025]: DHCPDISCOVER on ens33 to 255.255.255.255 port 67 interval 13 (xid=0x815c665e)
+Apr 17 17:23:47 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [nfsd:1507]
+Apr 17 17:23:47 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:23:47 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:23:47 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:23:47 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:23:47 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:23:47 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:23:47 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:23:47 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:23:47 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:23:47 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:23:47 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:23:47 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:23:47 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:23:47 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:23:47 localhost kernel: Call Trace:
+Apr 17 17:23:47 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:23:47 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:23:47 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:23:47 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:23:47 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:23:47 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:23:47 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:23:47 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:23:47 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:23:47 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:23:47 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:23:47 localhost kernel: kthread+0x112/0x130
+Apr 17 17:23:47 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:23:47 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:23:48 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:23:48 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:23:49 localhost abrt-server[3994]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:23:49 localhost abrt-server[3994]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:23:49 localhost abrt-server[3994]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:23:49 localhost abrt-notification[4012]: System encountered a non-fatal error in ??()
+Apr 17 17:23:49 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:23:54 localhost dhclient[1025]: DHCPDISCOVER on ens33 to 255.255.255.255 port 67 interval 16 (xid=0x815c665e)
+Apr 17 17:24:10 localhost dhclient[1025]: DHCPDISCOVER on ens33 to 255.255.255.255 port 67 interval 15 (xid=0x815c665e)
+Apr 17 17:24:15 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 23s! [nfsd:1507]
+Apr 17 17:24:15 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:24:15 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:24:15 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:24:15 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:24:15 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:24:15 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:24:15 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:24:15 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:24:15 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:24:15 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:24:15 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:24:15 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:24:15 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:24:15 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:24:15 localhost kernel: Call Trace:
+Apr 17 17:24:15 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:24:15 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:24:15 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:24:15 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:24:15 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:24:15 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:24:15 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:24:15 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:24:15 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:24:15 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:24:15 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:24:15 localhost kernel: kthread+0x112/0x130
+Apr 17 17:24:15 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:24:15 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:24:16 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:24:16 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:24:17 localhost abrt-server[4015]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:24:17 localhost abrt-server[4015]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:24:17 localhost abrt-server[4015]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:24:17 localhost dbus-daemon[750]: [system] Activating service name='org.freedesktop.problems' requested by ':1.57' (uid=0 pid=4032 comm="/usr/bin/python3 /usr/bin/abrt-action-notify -d /v" label="system_u:system_r:abrt_t:s0-s0:c0.c1023") (using servicehelper)
+Apr 17 17:24:17 localhost dbus-daemon[750]: [system] Successfully activated service 'org.freedesktop.problems'
+Apr 17 17:24:17 localhost abrt-notification[4038]: System encountered a non-fatal error in ??()
+Apr 17 17:24:17 localhost abrt-dump-journal-oops[800]: Reported 1 kernel oopses to Abrt
+Apr 17 17:24:25 localhost dhclient[1025]: DHCPDISCOVER on ens33 to 255.255.255.255 port 67 interval 9 (xid=0x815c665e)
+Apr 17 17:24:34 localhost dhclient[1025]: No DHCPOFFERS received.
+Apr 17 17:24:34 localhost dhclient[1025]: No working leases in persistent database - sleeping.
+Apr 17 17:24:34 localhost NetworkManager[882]: <info>  [1555547074.3169] dhcp4 (ens33): state changed unknown -> fail
+Apr 17 17:24:36 localhost audit[1102]: CRYPTO_KEY_USER pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:52:83:99:5d:40:cf:84:f2:d7:2f:80:33:d7:87:0f:fd:33:ce:d8:f1:ed:7d:5e:a5:65:ef:2d:9f:8d:aa:97:1a direction=? spid=1106 suid=0  exe="/usr/sbin/sshd" hostname=? addr=? terminal=? res=success'
+Apr 17 17:24:36 localhost audit[1102]: CRYPTO_KEY_USER pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=session fp=? direction=both spid=1106 suid=0 rport=58518 laddr=192.168.10.111 lport=22  exe="/usr/sbin/sshd" hostname=? addr=192.168.10.1 terminal=? res=success'
+Apr 17 17:24:36 localhost audit[1102]: USER_END pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:session_close grantors=pam_selinux,pam_loginuid,pam_selinux,pam_namespace,pam_keyinit,pam_keyinit,pam_limits,pam_systemd,pam_unix,pam_umask,pam_lastlog acct="root" exe="/usr/sbin/sshd" hostname=192.168.10.1 addr=192.168.10.1 terminal=ssh res=success'
+Apr 17 17:24:36 localhost audit[1102]: CRED_DISP pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:setcred grantors=pam_unix acct="root" exe="/usr/sbin/sshd" hostname=192.168.10.1 addr=192.168.10.1 terminal=ssh res=success'
+Apr 17 17:24:36 localhost audit[1102]: USER_END pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=0 exe="/usr/sbin/sshd" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Apr 17 17:24:36 localhost audit[1102]: USER_LOGOUT pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login id=0 exe="/usr/sbin/sshd" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Apr 17 17:24:36 localhost audit[1102]: CRYPTO_KEY_USER pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:65:6c:da:b8:8a:dd:ff:89:b9:ae:b5:15:32:19:fa:8e:b1:3a:dc:03:32:24:51:48:a5:53:93:2a:ac:62:f5:2d direction=? spid=1102 suid=0  exe="/usr/sbin/sshd" hostname=? addr=? terminal=? res=success'
+Apr 17 17:24:36 localhost audit[1102]: CRYPTO_KEY_USER pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:01:ad:07:53:ff:53:56:3a:c8:7c:57:08:7f:68:33:8d:7c:28:8a:ba:78:91:d9:89:df:3f:c4:8d:1a:3b:24:16 direction=? spid=1102 suid=0  exe="/usr/sbin/sshd" hostname=? addr=? terminal=? res=success'
+Apr 17 17:24:36 localhost audit[1102]: CRYPTO_KEY_USER pid=1102 uid=0 auid=0 ses=3 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=destroy kind=server fp=SHA256:52:83:99:5d:40:cf:84:f2:d7:2f:80:33:d7:87:0f:fd:33:ce:d8:f1:ed:7d:5e:a5:65:ef:2d:9f:8d:aa:97:1a direction=? spid=1102 suid=0  exe="/usr/sbin/sshd" hostname=? addr=? terminal=? res=success'
+Apr 17 17:24:36 localhost systemd-logind[851]: Session 3 logged out. Waiting for processes to exit.
+Apr 17 17:24:36 localhost systemd-logind[851]: Removed session 3.
+Apr 17 17:24:43 localhost kernel: watchdog: BUG: soft lockup - CPU#3 stuck for 23s! [nfsd:1507]
+Apr 17 17:24:43 localhost kernel: Modules linked in: nfsv3 rpcsec_gss_krb5 nfsv4 dns_resolver nfs fscache nfsd auth_rpcgss nfs_acl lockd grace ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 xt_conntrack ebtable_nat ip6table_nat nf_nat_ipv6 ip6table_mangle ip6table_raw ip6table_security iptable_nat nf_nat_ipv4 nf_nat iptable_mangle iptable_raw iptable_security nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables vmw_vsock_vmci_transport vsock sunrpc coretemp crct10dif_pclmul crc32_pclmul ghash_clmulni_intel intel_rapl_perf snd_ens1371 vmw_balloon snd_ac97_codec gameport ac97_bus snd_rawmidi snd_seq_device snd_pcm joydev snd_timer snd soundcore i2c_piix4 vmw_vmci xfs libcrc32c vmwgfx crc32c_intel drm_kms_helper ttm drm serio_raw ata_generic pata_acpi mptspi scsi_transport_spi e1000 mptscsih mptbase fuse
+Apr 17 17:24:43 localhost kernel: CPU: 3 PID: 1507 Comm: nfsd Tainted: G      D      L    5.0.6-200.fc29.x86_64 #1
+Apr 17 17:24:43 localhost kernel: Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 07/02/2015
+Apr 17 17:24:43 localhost kernel: RIP: 0010:queued_spin_lock_slowpath+0x20/0x1a0
+Apr 17 17:24:43 localhost kernel: Code: 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 0f 1f 44 00 00 ba 01 00 00 00 8b 07 85 c0 75 09 f0 0f b1 17 85 c0 75 f2 c3 f3 90 <eb> ed 81 fe 00 01 00 00 74 40 81 e6 00 ff ff ff 75 6d f0 0f ba 2f
+Apr 17 17:24:43 localhost kernel: RSP: 0018:ffffa5a1c1c63d18 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+Apr 17 17:24:43 localhost kernel: RAX: 0000000000000001 RBX: ffff989eaec2e288 RCX: 0000000000000000
+Apr 17 17:24:43 localhost kernel: RDX: 0000000000000001 RSI: 0000000000000001 RDI: ffff989eb342b3b8
+Apr 17 17:24:43 localhost kernel: RBP: 0000000000000000 R08: ffff989eaec2e288 R09: 0000000000000000
+Apr 17 17:24:43 localhost kernel: R10: ffff989eaec2e288 R11: ffff989e92679740 R12: ffff989eb342b3b8
+Apr 17 17:24:43 localhost kernel: R13: 0000000000000000 R14: ffff989e92506468 R15: ffff989eaa57a6b8
+Apr 17 17:24:43 localhost kernel: FS:  0000000000000000(0000) GS:ffff989eb9cc0000(0000) knlGS:0000000000000000
+Apr 17 17:24:43 localhost kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+Apr 17 17:24:43 localhost kernel: CR2: 000000c0005b4000 CR3: 0000000129d34002 CR4: 00000000001606e0
+Apr 17 17:24:43 localhost kernel: Call Trace:
+Apr 17 17:24:43 localhost kernel: posix_lock_inode+0x90/0x8c0
+Apr 17 17:24:43 localhost kernel: ? nfsd4_lock_ol_stateid+0x19/0x60 [nfsd]
+Apr 17 17:24:43 localhost kernel: ? _cond_resched+0x15/0x30
+Apr 17 17:24:43 localhost kernel: nfsd4_locku+0x1a8/0x2d0 [nfsd]
+Apr 17 17:24:43 localhost kernel: nfsd4_proc_compound+0x340/0x660 [nfsd]
+Apr 17 17:24:43 localhost kernel: ? nfsd4_only_status_rsize+0x10/0x10 [nfsd]
+Apr 17 17:24:43 localhost kernel: nfsd_dispatch+0x9e/0x210 [nfsd]
+Apr 17 17:24:43 localhost kernel: svc_process_common+0x4ac/0x730 [sunrpc]
+Apr 17 17:24:43 localhost kernel: ? nfsd_destroy+0x50/0x50 [nfsd]
+Apr 17 17:24:43 localhost kernel: svc_process+0xb7/0xf0 [sunrpc]
+Apr 17 17:24:43 localhost kernel: nfsd+0xe3/0x140 [nfsd]
+Apr 17 17:24:43 localhost kernel: kthread+0x112/0x130
+Apr 17 17:24:43 localhost kernel: ? kthread_create_on_node+0x60/0x60
+Apr 17 17:24:43 localhost kernel: ret_from_fork+0x35/0x40
+Apr 17 17:24:44 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Found oopses: 1
+Apr 17 17:24:44 localhost abrt-dump-journal-oops[800]: abrt-dump-journal-oops: Creating problem directories
+Apr 17 17:24:45 localhost abrt-server[4046]: Can't find a meaningful backtrace for hashing in '.'
+Apr 17 17:24:45 localhost abrt-server[4046]: Option 'DropNotReportableOopses' is not configured
+Apr 17 17:24:45 localhost abrt-server[4046]: Preserving oops '.' because DropNotReportableOopses is 'no'
+Apr 17 17:24:45 localhost abrt-notification[4064]: System encountered a non-fatal error in ??()
