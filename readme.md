@@ -36,3 +36,17 @@ Compilation instruction:
 This code will create 30 threads which will randomly read/write/seek/lock/rename/unlink 30 random files for 5 seconds. Probably needs to be run on SSD. Now these random operations are all working fine beside flock with LOCK_EX, even LOCK_SH is working correctly and if you replace exclusive locks with shared locks this app shouldn't be able to kill the server. LOCK_EX is the thing which will make the server to crash under high load.
 
 Crash log is attached.
+
+## Update / Fix
+- Actually NFS 4.2 seems to be broken in old kernel too, the nfs server just stops responding (there's no crash).
+- NFS 4.0 seems to be working fine for all configurations tested so that should be fix before code is patched
+- In FC 30 there's the same bug (new log attached)
+- It seems that there's some problem with nfs-caching because the nfsd debug (when enabled) stopps at nfsd4_store_cache_entry most of the time
+
+<pre>Apr 18 23:14:30 localhost.localdomain kernel: check_slot_seqid enter. seqid 7622 slot_seqid 7621
+Apr 18 23:14:30 localhost.localdomain kernel: nfsd: fh_verify(40: 81070001 0c0006c9 00000000 1ff8ff25 5b49d18f 10c1cbab)
+Apr 18 23:14:30 localhost.localdomain kernel: NFSD: nfsd4_open filename  op_openowner           (null)
+Apr 18 23:14:30 localhost.localdomain kernel: nfsd: fh_verify(40: 81070001 0c0006c9 00000000 1ff8ff25 5b49d18f 10c1cbab)
+Apr 18 23:14:30 localhost.localdomain kernel: nfsd: fh_verify(40: 81070001 0c0006c9 00000000 1ff8ff25 5b49d18f 10c1cbab)
+Apr 18 23:14:30 localhost.localdomain kernel: nfsv4 compound returned 10008
+Apr 18 23:14:30 localhost.localdomain kernel: --> nfsd4_store_cache_entry slot 00000000cbf38d42</pre>
