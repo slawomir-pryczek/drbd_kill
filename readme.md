@@ -2,6 +2,8 @@
 This code will cause kernel panic / totally lockup nfs4 server on newest FC 29. It'll also cause NFS Server to lock up / stop responding on older FC versions. Now why is it called drbd_kill? It seems that additional layer
 which drbd is, is causing the code to kill the server faster. But it turned out it only needs nfs4 share to kill nfs4-server completely. NFS Client seems to be working ok in all cases. So this is purely NFS Server related.
 
+In all cases the machine will stop responding or kernel will go into infinite loop (soft lockup) on some CPU cores.
+
 Normally it takes about 20-30s, when you add drbd it'll take around 5-15s. For testing with drbd - you need to setup drbd volume, mount it, then share it via nfs4 (client and server can be on the same machine). Then you need to run the app on the NFS share.
 
 It'll kill both NFS 4.1 and NFS 4.2. NFS 3 seems not affected.
