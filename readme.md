@@ -13,6 +13,9 @@ Fedora release 29 (Twenty Nine)
 - 5.0.7-200.fc29.x86_64 #1 SMP (Fedora 29, also other sub-versions)
 - 5.0.6-200.fc29.x86_64 #1 SMP (Fedora 29 Server Edition)
 
+Fedora release 30
+- 5.0.7-300.fc30.x86_64 #1 SMP (Fedora 30 Server Edition)
+
 cat /proc/drbd
 version: 8.4.11 (api:1/proto:86-101)
 srcversion: C27D50EE6C67ED861348AA6
